@@ -1,0 +1,5 @@
+import ResourcePage from '../components/ResourcePage';
+const config={endpoint:'prescriptions',singular:'Prescription',heading:'Prescriptions',description:'Record medication instructions prescribed by clinicians.',
+ columns:[{key:'patient_name',label:'PATIENT'},{key:'doctor_name',label:'DOCTOR'},{key:'medication_name',label:'MEDICATION'},{key:'dosage',label:'DOSAGE'},{key:'frequency',label:'FREQUENCY'},{key:'duration',label:'DURATION'}],
+ fields:[{name:'patient_id',label:'Patient',type:'select',optionsEndpoint:'patients',optionLabel:r=>`${r.patient_number} — ${r.first_name} ${r.last_name}`,required:true},{name:'doctor_id',label:'Doctor',type:'select',optionsEndpoint:'doctors',optionLabel:r=>`${r.full_name} — ${r.specialization}`,required:true},{name:'medical_record_id',label:'Medical record database ID',type:'number'},{name:'medication_name',label:'Medication name',required:true},{name:'dosage',label:'Dosage',required:true},{name:'frequency',label:'Frequency',required:true},{name:'duration',label:'Duration'},{name:'instructions',label:'Instructions',type:'textarea',full:true}]};
+export default function Prescriptions(){return <ResourcePage config={config}/>;}
